@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SELAMAT HARI GURU SMP FIKRI</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #FFD700, #FF4500, #8A2BE2, #000000);
+      background-size: 400% 400%;
+      animation: backgroundAnimation 8s infinite alternate;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-y: auto; /* Agar body dapat digulir */
+    }
+
+    @keyframes backgroundAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .title {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FF4500;
+      animation: pulse 1s infinite;
+    }
+
+    h1 {
+      color: #FFD700;
+    }
+
+    h2 {
+      color: #00BFFF;
+      text-shadow: 0 0 10px #00BFFF, 0 0 20px #1E90FF;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .subtitle {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px white;
+    }
+
+    .open-btn {
+      font-size: 2rem;
+      color: white;
+      background: linear-gradient(to right, #FF6347, #FF4500);
+      border: none;
+      padding: 15px 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 25px;
+      box-shadow: 0 0 20px #FFFFFF;
+    }
+
+    .open-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to right, #FF4500, #FF6347);
+    }
+
+    .message {
+      display: none;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hidden-content {
+      display: none;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .hidden-content img {
+      width: 300px;
+      height: auto;
+      margin: 10px;
+      border: 5px solid #FFD700;
+      border-radius: 15px;
+      box-shadow: 0 0 10px white;
+    }
+
+    audio {
+      margin-top: 20px;
+      box-shadow: 0 0 15px white;
+    }
+
+    .new-title {
+      font-size: 2rem;
+      color: #FFD700;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FF4500;
+    }
+
+    .moving-name {
+      font-size: 2rem;
+      color: black;
+      background-color: cyan;
+      padding: 10px 20px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-top: 20px;
+      position: relative;
+      animation: moveText 8s linear infinite;
+    }
+
+    @keyframes moveText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">SELAMAT HARI GURU</h1>
+    <h2 class="title">SMP FIKRI</h2>
+    <p class="subtitle">"Guru adalah pelita ilmu yang tak pernah padam."</p>
+    <button class="open-btn" id="openButton" onclick="showMessage()">BUKA</button>
+    <div class="message">
+      <p>
+        Pada tanggal 25 November 2024 ini, saya FIQRI NAUFAL MAHARDIKA, ingin mengucapkan terima kasih yang sebesar-besarnya kepada semua guru yang telah dengan tulus mengajar, membimbing, dan memberikan ilmu serta nilai-nilai kehidupan yang tak ternilai harganya.
+      </p>
+      <p>
+        Untuk semua guru di SMP FIKRI, terima kasih atas ilmu, semangat, dan keteladanan yang telah kalian berikan. FIQRI merasa sangat beruntung bisa belajar dan tumbuh di bawah bimbingan yang penuh kasih dan sabar. Selamat Hari Guru!
+      </p>
+    </div>
+    <div class="hidden-content" id="hiddenContent">
+      <!-- Audio diputar -->
+      <audio controls autoplay loop>
+        <source src="Terimakasih.mp3" type="audio/mpeg">
+      </audio>
+      <!-- Gambar-gambar -->
+      <img src="SMP1.jpg" alt="Gambar 1">
+      <img src="SMP2.jpg" alt="Gambar 2">
+      <!-- Judul baru -->
+      <div class="new-title">FIQRI 81</div>
+      <!-- Nama bergerak -->
+      <div class="moving-name">HTML CODING:FIQRI</div>
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.querySelector('.message').style.display = 'block';
+      document.getElementById('hiddenContent').style.display = 'block';
+      const button = document.getElementById('openButton');
+      button.innerText = 'BACA YA';
+      button.disabled = true;
+    }
+  </script>
+</body>
+</html>
