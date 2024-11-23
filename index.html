@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +14,7 @@
       animation: backgroundAnimation 8s infinite alternate;
       font-family: Arial, sans-serif;
       color: white;
-      overflow-y: auto; /* Agar body dapat digulir */
+      overflow-y: auto;
     }
 
     @keyframes backgroundAnimation {
@@ -58,11 +59,11 @@
     }
 
     .open-btn {
-      font-size: 2rem;
+      font-size: 3rem; /* Ukuran font lebih besar */
       color: white;
       background: linear-gradient(to right, #FF6347, #FF4500);
       border: none;
-      padding: 15px 30px;
+      padding: 20px 50px; /* Menambah padding agar tombol lebih besar */
       cursor: pointer;
       transition: all 0.3s ease;
       border-radius: 25px;
@@ -87,13 +88,32 @@
       margin-top: 2rem;
     }
 
+    /* Bingkai api untuk gambar */
     .hidden-content img {
       width: 300px;
       height: auto;
       margin: 10px;
-      border: 5px solid #FFD700;
+      border: 5px solid transparent;
       border-radius: 15px;
       box-shadow: 0 0 10px white;
+      position: relative;
+      animation: flameBorder 1s infinite alternate;
+    }
+
+    /* Efek api pada bingkai */
+    @keyframes flameBorder {
+      0% {
+        border-color: transparent;
+        box-shadow: 0 0 10px #FF6347, 0 0 20px #FF6347, 0 0 30px #FF6347;
+      }
+      50% {
+        border-color: #FF6347;
+        box-shadow: 0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 30px #FF4500;
+      }
+      100% {
+        border-color: transparent;
+        box-shadow: 0 0 10px #FF6347, 0 0 20px #FF6347, 0 0 30px #FF6347;
+      }
     }
 
     audio {
@@ -136,7 +156,7 @@
     <h1 class="title">SELAMAT HARI GURU</h1>
     <h2 class="title">SMP FIKRI</h2>
     <p class="subtitle">"Guru adalah pelita ilmu yang tak pernah padam."</p>
-    <button class="open-btn" id="openButton" onclick="showMessage()">BUKA</button>
+    <button class="open-btn" id="openButton" onclick="showMessage()">---->✉️<----</button>
     <div class="message">
       <p>
         Pada tanggal 25 November 2024 ini, saya FIQRI NAUFAL MAHARDIKA, ingin mengucapkan terima kasih yang sebesar-besarnya kepada semua guru yang telah dengan tulus mengajar, membimbing, dan memberikan ilmu serta nilai-nilai kehidupan yang tak ternilai harganya.
@@ -144,10 +164,13 @@
       <p>
         Untuk semua guru di SMP FIKRI, terima kasih atas ilmu, semangat, dan keteladanan yang telah kalian berikan. FIQRI merasa sangat beruntung bisa belajar dan tumbuh di bawah bimbingan yang penuh kasih dan sabar. Selamat Hari Guru!
       </p>
+      <p>
+        Guru adalah seseorang yang tidak hanya mengajarkan ilmu pengetahuan, tetapi juga memberikan kepercayaan diri, membangun harapan, dan menanamkan semangat untuk terus maju. Mereka adalah pemandu dalam perjalanan hidup kami, mengarahkan kami menuju masa depan yang lebih cerah. Tanpa guru, kita mungkin tidak akan tahu potensi sejati yang kita miliki. Mereka adalah pahlawan yang membentuk generasi bangsa dengan kasih sayang, dedikasi, dan semangat tanpa henti. Terima kasih, guru, karena kalian telah memberikan kami lebih dari sekadar ilmu.
+      </p>
     </div>
     <div class="hidden-content" id="hiddenContent">
-      <!-- Audio diputar -->
-      <audio controls autoplay loop>
+      <!-- Audio diputar ketika tombol ditekan -->
+      <audio id="audio" autoplay loop>
         <source src="Terimakasih.mp3" type="audio/mpeg">
       </audio>
       <!-- Gambar-gambar -->
@@ -162,6 +185,8 @@
 
   <script>
     function showMessage() {
+      const audio = document.getElementById('audio');
+      audio.play(); // Memulai audio setelah tombol ditekan
       document.querySelector('.message').style.display = 'block';
       document.getElementById('hiddenContent').style.display = 'block';
       const button = document.getElementById('openButton');
